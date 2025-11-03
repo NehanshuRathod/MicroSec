@@ -1,26 +1,49 @@
 # MicroSec
 
 MicroSec/
+
 │
-├── src/                      # Source code for encryption & communication
-│   ├── encryptor.cpp         # Core encryption logic
-│   ├── decryptor.cpp         # Core decryption logic
-│   ├── comms_handler.cpp     # Microcontroller communication handler
-│   ├── main.cpp              # Entry point for embedded logic
-│   └── utils/                # Helper functions
+
+├── src/                          # Source code for encryption & communication
+
+│   ├── encryptor.cpp             # Core encryption logic
+
+│   ├── decryptor.cpp             # Core decryption logic
+
+│   ├── comms_handler.cpp         # Microcontroller communication handler
+
+│   ├── main.cpp                  # Entry point for embedded logic
+
+│   └── utils/                    # Helper functions
+
 │
-├── ui/                       # UI files for desktop app
-│   ├── app.py                # Example (if using Tkinter or PyQt)
-│   └── assets/               # Icons, fonts, etc.
+
+├── ui/                           # UI files for desktop application
+
+│   ├── app.py                    # Python UI (Tkinter / PyQt)
+
+│   └── assets/                   # Icons, images, fonts, etc.
+
 │
-├── docs/                     # Optional documentation (PDFs, notes, designs)
+
+├── docs/                         # Documentation and reports
+
+│   └── architecture_diagram.png  # Example diagram (optional)
+
 │
-├── examples/                 # Example communication or encryption tests
-│   └── sample_transfer_demo.txt
+
+├── examples/                     # Test and demo files
+
+│   └── sample_transfer_demo.txt  # Example encrypted communication demo
+
 │
-├── .gitignore
-├── LICENSE
-└── README.md
+
+├── .gitignore                    # Ignored files and folders
+
+├── LICENSE                       # Open-source license
+
+└── README.md                     # Project overview and documentation
+
 
 
 # 🔐 MicroSec – Secure Communication for Microcontrollers
