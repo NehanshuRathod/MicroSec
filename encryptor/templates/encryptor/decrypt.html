@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Decryption Result | MicroSec</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1e1f29, #2d2e3f);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: #2c2e3b;
+            padding: 40px 50px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .btn {
+            background: #00d4ff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background: #03b6dd;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>✅ File Successfully Decrypted!</h2>
+        <p>Your decrypted file is ready to download.</p>
+        <a href="/media/{{ decrypted_file }}" class="btn">Download Decrypted File</a>
+    </div>
+</body>
+</html>

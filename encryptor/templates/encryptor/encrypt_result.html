@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Encryption Result | MicroSec</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1e1f29, #2d2e3f);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: #2c2e3b;
+            padding: 40px 50px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: 480px;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+        textarea, input[type="file"], input[type="text"] {
+            width: 100%;
+            border-radius: 8px;
+            border: none;
+            background: #1f212e;
+            color: white;
+            padding: 10px;
+            resize: none;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 80px;
+        }
+        .btn {
+            background: #00d4ff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background: #03b6dd;
+        }
+        h2 {
+            color: #00d4ff;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #3a3c4a;
+            margin: 30px 0;
+        }
+        .decrypt-form label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            color: #b5b7c0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🔐 File Successfully Encrypted!</h2>
+        <p>Your encrypted file is ready to download.</p>
+        <a href="/media/{{ encrypted_file }}" class="btn">Download Encrypted File</a>
+
+        <br><br>
+        <p><strong>Encrypted AES Key (Base64):</strong></p>
+        <textarea readonly>{{ enc_aes_key }}</textarea>
+        <p><strong>AES Nonce (Base64):</strong></p>
+        <textarea readonly>{{ aes_nonce }}</textarea>
+        <p><strong>Public RSA Key (Base64):</strong></p>
+        <textarea readonly>{{ public_key }}</textarea>
+
+        <!-- 🧩 Divider -->
+        <hr>
+
+        <!-- 🔓 Decrypt Section -->
+        <h2>🔓 Decrypt File Here</h2>
+        <p>Use the AES key, nonce, and private RSA key to decrypt directly.</p>
+
+        <form action="{% url 'encryptor:decrypt_file' %}" method="POST" enctype="multipart/form-data" class="decrypt-form">
+            {% csrf_token %}
+            <label>Upload Encrypted File:</label>
+            <input type="file" name="file" required>
+
+            <label>Encrypted AES Key (Base64):</label>
+            <textarea name="enc_aes_key" required>{{ enc_aes_key }}</textarea>
+
+            <label>AES Nonce (Base64):</label>
+            <input type="text" name="aes_nonce" value="{{ aes_nonce }}" required>
+
+            <label>Private RSA Key (Base64):</label>
+            <textarea name="private_key" required>{{ private_key }}</textarea>
+
+            <br>
+            <button type="submit" class="btn">🔓 Decrypt File</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Decryption Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f5f6fa;
+            text-align: center;
+            padding: 50px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 40px;
+            display: inline-block;
+        }
+        a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Decryption Result</h1>
+
+        {% if error %}
+            <p class="error">❌ Error: {{ error }}</p>
+        {% else %}
+            <p>✅ File successfully decrypted!</p>
+            <p><strong>Download:</strong> <a href="/media/{{ decrypted_file }}">{{ decrypted_file }}</a></p>
+        {% endif %}
+
+        <br><br>
+        <a href="/">⬅ Back to Home</a>
+    </div>
+</body>
+</html>
